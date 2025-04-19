@@ -1,0 +1,119 @@
+def create_readme():
+    readme = """# Video to Audio Extraction Tool
+
+A Python utility for extracting audio from video files, either individually or in batch mode.
+
+## Features
+
+- Extract audio from multiple video files in a directory
+- Preserve folder structure in the output directory
+- Support for various audio formats (MP3, WAV, AAC, FLAC, OGG)
+- Configurable audio quality (bitrate)
+- Interactive or command-line usage
+- Progress tracking with visual feedback
+- Error handling for corrupt or problematic files
+
+## Requirements
+
+- Python 3.6+
+- FFmpeg (must be installed and available in your system PATH)
+- Required Python packages:
+  - tqdm
+  - subprocess (standard library)
+  - os (standard library)
+  - argparse (standard library)
+  - pathlib (standard library)
+
+## Installation
+
+1. Ensure FFmpeg is installed on your system:
+   - **Windows**: Download from [ffmpeg.org](https://ffmpeg.org/download.html) and add to PATH
+   - **macOS**: `brew install ffmpeg`
+   - **Linux**: `sudo apt install ffmpeg` or equivalent for your distribution
+
+2. Install required Python packages:
+   ```bash
+   pip install tqdm
+   ```
+
+3. Download the script file to your preferred location.
+
+## Usage
+
+### Interactive Mode
+
+Run the script without arguments to use interactive mode:
+
+```bash
+python video_to_audio.py
+```
+
+You'll be prompted to enter:
+- Path to your folder containing video files
+- Path where audio files should be saved
+- Desired audio format (mp3, wav, aac, flac, ogg)
+- Desired audio bitrate (e.g., 192k, 320k)
+
+### Command Line Mode
+
+```bash
+python video_to_audio.py --input /path/to/videos --output /path/to/audio --format mp3 --bitrate 192k
+```
+
+Command line options:
+- `--input`, `-i`: Input folder containing video files (required)
+- `--output`, `-o`: Output folder for audio files (required)
+- `--format`, `-f`: Audio format (mp3, wav, aac, flac, ogg) (default: mp3)
+- `--bitrate`, `-b`: Audio bitrate (default: 192k)
+
+## Examples
+
+### Basic Usage
+```bash
+python video_to_audio.py --input ~/Videos --output ~/Music
+```
+
+### Specifying Format and Quality
+```bash
+python video_to_audio.py --input ~/Videos --output ~/Music --format flac --bitrate 320k
+```
+
+### Processing a Single Video File
+Create a folder with just that one video file and process the folder.
+
+## Notes
+
+- The script will maintain the folder structure from your input directory
+- Progress bars show extraction status for each file
+- A summary is provided after processing all files
+- Higher bitrates result in better audio quality but larger file sizes
+
+## Troubleshooting
+
+- **FFmpeg not found error**: Ensure FFmpeg is installed and in your system PATH
+- **Permission errors**: Ensure you have write access to the output directory
+- **Format errors**: Some video files may have unsupported audio codecs
+- **Zero duration errors**: The video file may be corrupted
+
+## License
+
+This tool is provided under the MIT License.
+"""
+    
+    # Write to file
+    with open("README.md", "w") as f:
+        f.write(readme)
+    
+    print("README.md has been created successfully.")
+    return readme
+
+# Function to generate the README file
+def generate_readme_file():
+    readme_content = create_readme()
+    return readme_content
+
+# Example usage
+if __name__ == "__main__":
+    readme_text = generate_readme_file()
+    # Alternatively, just print the content without saving to file
+    # print(readme_text)
