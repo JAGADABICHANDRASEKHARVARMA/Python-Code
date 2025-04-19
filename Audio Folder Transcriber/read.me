@@ -1,0 +1,22 @@
+# 🎙️ Audio Folder Transcriber
+
+A Python script that automatically converts and transcribes **multiple audio files from a folder** into a **single text transcript** using the [SpeechRecognition](https://pypi.org/project/SpeechRecognition/) and [pydub](https://pypi.org/project/pydub/) libraries.
+
+---
+
+## ✨ Features
+
+- Supports multiple audio formats: `.mp3`, `.wav`, `.flac`, `.m4a`, `.aac`, `.ogg`, `.wma`
+- Converts audio files to WAV format for compatibility
+- Processes audio in chunks (default: 30 seconds) to handle long files
+- Saves all transcriptions in one combined `.txt` file
+- Easy to use via command-line
+
+---
+
+## 🛠 Requirements
+
+Install dependencies with pip:
+
+```bash
+pip install -r requirements.txt
